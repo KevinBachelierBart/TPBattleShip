@@ -7,6 +7,7 @@ class Board
 {
 public :
 	void Init();
+	void Print();
 
 private:
 	//Tableau

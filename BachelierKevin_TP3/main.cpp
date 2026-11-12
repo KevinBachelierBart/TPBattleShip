@@ -21,7 +21,7 @@ void main()
 	cout << "|------------------------------------------------------------------|" << endl;
 	cout << "| Battleship est un jeu ou chaque joueur place ses bateaux sur une |" << endl;
 	cout << "|     grille et doit deviner ou se trouvent ceux de son adversaire |" << endl;
-	cout << "|      en lançant des tirs.Le but est de couler tous les bateaux   |" << endl;
+	cout << "|      en lancant des tirs.Le but est de couler tous les bateaux   |" << endl;
 	cout << "|                           adverses pour gagner !                 |" << endl;
 	cout << "|------------------------------------------------------------------|" << endl;
 	cout << "\033[0m";

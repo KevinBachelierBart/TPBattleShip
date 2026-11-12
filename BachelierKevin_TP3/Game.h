@@ -6,10 +6,12 @@ class Game
 public:
 	void Run();
 	void Init();
+	void Instruction();
+	void Gameplay();
 
 private :
-	//Tableau
-	Board m_board;
+	//Tableau de ma classe board
+	Board m_classeBoard;//Pour print le board depuis Run()
 
 	//Player choice
 	char charPlayerTurn = ' ';
