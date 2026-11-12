@@ -9,6 +9,10 @@ public :
 	void Init();
 
 private:
+	//Tableau
 	vector<vector<char>> m_board;
+
+
+
 };
 

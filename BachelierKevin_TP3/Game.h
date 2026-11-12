@@ -5,12 +5,15 @@ class Game
 {
 public:
 	void Run();
+	void Init();
 
 private :
+	//Tableau
 	Board m_board;
-	Board m_board2;
 
-
+	//Player choice
+	char charPlayerTurn = ' ';
+	bool playerTurn = false;
 
 };
 
