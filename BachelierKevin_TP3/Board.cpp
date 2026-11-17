@@ -14,7 +14,7 @@ void Board::Init() //Creation d un tableau de 2 vectors
 
 		for (int j = 0; j < 11; j++) 
 		{
-			m_board[i].push_back(' ');
+			m_board[i].push_back('~');
 		}
 	}
 	
@@ -23,7 +23,6 @@ void Board::Init() //Creation d un tableau de 2 vectors
 
 void Board::Print()//Ce tableau se printera pas sans le Init 
 {
-
 	cout << "==============================================" << endl;
 	for (int j = 0; j < m_board.size(); j++)
 	{
@@ -40,6 +39,7 @@ void Board::Print()//Ce tableau se printera pas sans le Init
 		}
 		cout << endl << "|-------------------------------------------|" << endl;
 	}
+
 
 }
 
