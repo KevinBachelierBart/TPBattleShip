@@ -63,7 +63,7 @@ void Player::PlaceBoats()
             if (c == 'o') 
             {
                 //Bateau placed
-
+                m_boatPlaced = true;
             }
         }
     }
