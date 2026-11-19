@@ -1,6 +1,4 @@
 #include <iostream>
-
-
 #include "Game.h"
 
 using std::cout;
@@ -10,17 +8,14 @@ using std::endl;
 void Game::Run()
 {
 	//----------------------------------------------------------------------------------------
-	cout << "\033[36m";
-	cout << "****** Tu es actuellement dans Game:: Run() ********";
-	cout << "\033[0m";
-	cout << "" << endl;
+	cout << "\033[36m"; cout << "****** Tu es actuellement dans Game:: Run() ********"; cout << "\033[0m"; cout << "" << endl;
 	//----------------------------------------------------------------------------------------
 
-	Init();
+	Init();//Cette fonction va initialiser joueurs
 	
-	Instruction();
+	PlayerChoice();//Choix du joueur
 
-	Gameplay();
+	Gameplay();//Deroulement de la partie
 
 }
 //****************************************************************************************************************
@@ -30,18 +25,15 @@ void Game::Run()
 void Game::Init()
 {
 	//----------------------------------------------------------------------------------------
-	cout << "\033[36m";
-	cout << "****** Tu es actuellement dans Game:: Init() ********";
-	cout << "\033[0m";
-	cout << "" << endl;
+	cout << "\033[36m";cout << "****** Tu es actuellement dans Game:: Init() ********";cout << "\033[0m";cout << "" << endl;
 	//----------------------------------------------------------------------------------------
 	
-	m_classeBoard.Init();
-	m_classeBoard.Print();
+	m_instancePlayer.InitPlayerBoard();
+	m_instancePlayer.PrintBoards();
 
 }
 
-void Game::Instruction()
+void Game::PlayerChoice()
 {
 	//----------------------------------------------------------------------------------------
 	cout << "\033[36m";
@@ -57,6 +49,7 @@ void Game::Instruction()
 
 		charPlayerTurn == 'o' ? playerTurn = true : playerTurn = false;
 	} while (charPlayerTurn != 'o' && charPlayerTurn != 'n');
+
 #pragma region DEBUG
 	//---------------------------------DEBUG-----------------------------------------------
 	cout << "\033[34m" << "playerTurn = " << playerTurn << "\033[0m";
@@ -75,6 +68,7 @@ void Game:: Gameplay()
 	//----------------------------------------------------------------------------------------
 	cout << "\033[36m"; cout << "****** Tu es actuellement dans Game:: Gameplay() ********"; cout << "\033[0m"; cout << "" << endl;
 	//----------------------------------------------------------------------------------------
+	m_instancePlayer.PlaceBoats();
 
 	system("pause");
 

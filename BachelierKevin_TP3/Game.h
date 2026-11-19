@@ -1,17 +1,20 @@
 #pragma once
-#include "Board.h"
+#include "BoardBoat.h"
+#include "Player.h"
 
 class Game
 {
 public:
 	void Run();
 	void Init();
-	void Instruction();
+	void PlayerChoice();
 	void Gameplay();
 
 private :
 	//Tableau de ma classe board
-	Board m_classeBoard;//Pour print le board depuis Run()
+	Player m_instancePlayer;
+
+
 
 	//Player choice
 	char charPlayerTurn = ' ';
