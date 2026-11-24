@@ -13,7 +13,7 @@ void BoardAttack::Init() //Creation d un tableau de 2 vectors
 
 		for (int j = 0; j < 11; j++)
 		{
-			m_boardAttack[i].push_back('O');
+			m_boardAttack[i].push_back(' ');
 		}
 	}
 }

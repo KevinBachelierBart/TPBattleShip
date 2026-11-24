@@ -41,7 +41,7 @@ void BoardBoat::Print()//Ce tableau se printera pas sans le Init
 	}
 }
 
-void BoardBoat::SetCase(int i, int j, char token)
+void BoardBoat::SetCase(int i, int j, char token)//Depose un token dans le tableau
 {
 	m_boardBoat[i][j] = token;
 }

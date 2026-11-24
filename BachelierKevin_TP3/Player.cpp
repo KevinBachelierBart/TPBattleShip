@@ -26,47 +26,60 @@ void Player::PlaceBoats()
 	//----------------------------------------------------------------------------------------
 	cout << "\033[36m"; cout << "****** Tu es actuellement dans Player::PlaceBoats() ********"; cout << "\033[0m"; cout << "" << endl;
 	//----------------------------------------------------------------------------------------
-	cout << "Deplace ton bateau" << endl;
-	
-    while (!m_boatPlaced)
+    system("cls");
+    m_instanceBoardBoat.Print();
+
+    for (int boat = 0; boat <= 5; boat++) 
     {
-        if (_kbhit()) // _kbhit() = detect si ya un touche appyuyer sur le clavier
+        cout << "Deplace ton bateau #" << boat+1 
+        << " avec WASD puis presse 'o' lorsque tu as fini" << endl;
+
+        while (!m_boatPlaced)
         {
-            char c = _getch();
-            if (c == 'w') // _getch() = prend le charactere qui a été appuyé sur le clavier
+            if (_kbhit()) // _kbhit() = detect si ya un touche appyuyer sur le clavier
             {
-                cout << "w" << endl;
-            }
-            if (c == 'a')
-            {
-                cout << "a" << endl;
-            }
-            if (c == 's')
-            {
-                cout << "s" << endl;
-            }
-            if (c == 'd')
-            {
-                if(1)
-                m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, '~');
-                
-                m_boatJ++;
+                char c = _getch();
+                if (c == 'w') // _getch() = prend le charactere qui a été appuyé sur le clavier
+                {
+                    cout << "w" << endl;
+                }
+                if (c == 'a')
+                {
+                    cout << "a" << endl;
+                }
+                if (c == 's')
+                {
+                    cout << "s" << endl;
+                }
+                if (c == 'd')
+                {
+                    //Max pourquoi je fais pas une fonction de cette logique ???? 
 
-                m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, 'B');
-                
-                system("cls");
-                
-                m_instanceBoardBoat.Print();
+                    m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, '~');//On met une vague 
+                                                                       //dans la case actuelle
 
-            }
+                    m_boatJ++;//On avance J
 
-            if (c == 'o') 
-            {
-                //Bateau placed
-                m_boatPlaced = true;
+                    m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, 'B');//On met un B 
+                                                                       //dans la case actuelle
+
+                    system("cls");
+
+                    m_instanceBoardBoat.Print();
+
+                }
+
+                if (c == 'o')
+                {
+                    //Bateau placed
+                    m_boatPlaced = true;
+                }
             }
         }
     }
+
+
+    
 
 	
 	

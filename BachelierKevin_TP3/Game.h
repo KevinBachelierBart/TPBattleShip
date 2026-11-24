@@ -11,7 +11,7 @@ public:
 	void Gameplay();
 
 private :
-	//Tableau de ma classe board
+	//Tableau de ma classe Player
 	Player m_instancePlayer;
 
 
