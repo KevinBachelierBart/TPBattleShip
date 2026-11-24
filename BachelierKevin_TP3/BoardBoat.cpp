@@ -46,3 +46,23 @@ void BoardBoat::SetCase(int i, int j, char token)//Depose un token dans le table
 	m_boardBoat[i][j] = token;
 }
 
+void BoardBoat::SaveBoatLocation(int iStart, int jStart, int iEnd, int jEnd)
+{
+	if(iStart == iEnd)//Boat is horizontal
+	{
+		for (int j = jStart; j <= jEnd; j++)
+		{
+			m_boardBoat[iStart][j] = 'B';
+		}
+	}
+	else//Boat is vertical
+	{
+		for (int i = iStart; i <= iEnd; i++)
+		{
+			m_boardBoat[i][jStart] = 'B';
+		}
+	
+	}
+}
+
+

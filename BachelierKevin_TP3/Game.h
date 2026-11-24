@@ -8,6 +8,7 @@ public:
 	void Run();
 	void Init();
 	void PlayerChoice();
+	void PreGameplay();
 	void Gameplay();
 
 private :

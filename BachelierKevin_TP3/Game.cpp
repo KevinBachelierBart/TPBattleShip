@@ -15,6 +15,8 @@ void Game::Run()
 	
 	PlayerChoice();//Choix du joueur
 
+	PreGameplay();//Preparation
+
 	Gameplay();//Deroulement de la partie
 
 }
@@ -29,17 +31,17 @@ void Game::Init()
 	//----------------------------------------------------------------------------------------
 	
 	m_instancePlayer.InitPlayerBoard();
-	m_instancePlayer.PrintBoards();
+
+	//----------------------------------------------------------------------------------------
+	cout << "\033[36m"; cout << "INITIALIZATION OVER"; cout << "\033[0m"; cout << "" << endl;
+	//----------------------------------------------------------------------------------------
 
 }
 
 void Game::PlayerChoice()
 {
 	//----------------------------------------------------------------------------------------
-	cout << "\033[36m";
-	cout << "****** Tu es actuellement dans Game:: Instruction() ********";
-	cout << "\033[0m";
-	cout << "" << endl;
+	cout << "\033[36m";cout << "****** Tu es actuellement dans Game:: Instruction() ********"; cout << "\033[0m";cout << "" << endl;
 	//----------------------------------------------------------------------------------------
 	do
 	{
@@ -63,12 +65,21 @@ void Game::PlayerChoice()
 
 }
 
+void Game:: PreGameplay()
+{
+	//----------------------------------------------------------------------------------------
+	cout << "\033[36m"; cout << "****** Tu es actuellement dans Game:: PreGameplay() ********"; cout << "\033[0m"; cout << "" << endl;
+	//----------------------------------------------------------------------------------------
+
+	m_instancePlayer.PlaceBoats();
+}
+
 void Game:: Gameplay()
 {
 	//----------------------------------------------------------------------------------------
 	cout << "\033[36m"; cout << "****** Tu es actuellement dans Game:: Gameplay() ********"; cout << "\033[0m"; cout << "" << endl;
 	//----------------------------------------------------------------------------------------
-	m_instancePlayer.PlaceBoats();
+	
 
 	system("pause");
 
