@@ -21,6 +21,6 @@ private :
 	int m_boatI = 0;
 	int m_boatJ = 0;
 
-
+	int m_BoatsArray[5] = {5,4,3,3,2};
 };
 

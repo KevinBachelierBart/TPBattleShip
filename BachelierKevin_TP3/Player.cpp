@@ -23,14 +23,28 @@ void Player::PrintBoards()
 
 void Player::PlaceBoats() 
 {
+    system("cls");
 	//----------------------------------------------------------------------------------------
 	cout << "\033[36m"; cout << "****** Tu es actuellement dans Player::PlaceBoats() ********"; cout << "\033[0m"; cout << "" << endl;
 	//----------------------------------------------------------------------------------------
-    system("cls");
     m_instanceBoardBoat.Print();
 
     for (int boat = 0; boat <= 5; boat++) 
     {
+        //Creer un bateau de x taille sur le board a (0;0)
+        for (int sizeBoat = 0; sizeBoat < m_BoatsArray[boat]; sizeBoat++) 
+        {
+            m_instanceBoardBoat.SetCase(0, sizeBoat, 'B');
+        }
+        system("cls");
+        m_instanceBoardBoat.Print();
+        system("pause");
+
+        //Deplace le bateau
+
+
+
+
         cout << "Deplace ton bateau B #" << boat+1 
         << " avec WASD puis presse 'o' lorsque tu as fini" << endl;
         
@@ -43,8 +57,6 @@ void Player::PlaceBoats()
                 char c = _getch();
                 if (c == 'w') // _getch() = prend le charactere qui a été appuyé sur le clavier
                 {
-                    //Max pourquoi je fais pas une fonction de cette logique ???? 
-
                     m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, '~');//On met une vague 
                     //dans la case actuelle
 
@@ -89,19 +101,32 @@ void Player::PlaceBoats()
                 }
                 if (c == 'd')
                 {
-                    //Max pourquoi je fais pas une fonction de cette logique ???? 
-
-                    m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, '~');//On met une vague 
+                    /*if (m_instanceBoardBoat.CheckCase(m_boatI, m_boatJ + 1))
+                    {
+                        m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, '~');//On met une vague 
                                                                        //dans la case actuelle
+                        m_boatJ++;//On avance J
 
-                    m_boatJ++;//On avance J
-
-                    m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, 'B');//On met un B 
+                        m_instanceBoardBoat.SetCase(m_boatI, m_boatJ, 'B');//On met un B 
                                                                        //dans la case actuelle
+                    }*/
 
+                    for (int sizeBoat = 0; sizeBoat < m_BoatsArray[boat]; sizeBoat++) 
+                    {
+                        m_instanceBoardBoat.SetCase(m_boatI, m_boatJ + sizeBoat, '~');//On met une vague 
+                    }
+
+                    m_boatJ++;
+
+                    for (int sizeBoat = 0; sizeBoat < m_BoatsArray[boat]; sizeBoat++)
+                    {
+                        m_instanceBoardBoat.SetCase(m_boatI, m_boatJ + sizeBoat, 'B');//On met une vague 
+                    }
+                    
+                    //dans la case actuelle
                     system("cls");
-
                     m_instanceBoardBoat.Print();
+                    
 
                     
                 }
@@ -128,3 +153,4 @@ void Player::PlaceBoats()
 	
 	//Place manuellement
 }
+

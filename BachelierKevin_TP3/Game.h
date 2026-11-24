@@ -15,7 +15,7 @@ private :
 	//Tableau de ma classe Player
 	Player m_instancePlayer;
 
-
+	
 
 	//Player choice
 	char charPlayerTurn = ' ';
