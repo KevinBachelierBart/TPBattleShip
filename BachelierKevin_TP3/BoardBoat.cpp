@@ -8,17 +8,15 @@ using std::endl;
 //LOGIC BOARD 10x10
 void BoardBoat::Init() //Creation d un tableau de 2 vectors
 {
-	for(int i = 0; i < 11; i++)
+	for(int i = 0; i < 10; i++)
 	{
 		m_boardBoat.push_back(vector<char>());
 
-		for (int j = 0; j < 11; j++) 
+		for (int j = 0; j < 10; j++) 
 		{
 			m_boardBoat[i].push_back('~');
 		}
 	}
-	
-
 }
 
 void BoardBoat::Print()//Ce tableau se printera pas sans le Init 
@@ -79,14 +77,37 @@ void BoardBoat::SaveBoatLocation(int iStart, int jStart, int iEnd, int jEnd)
 	}
 }
 
-bool BoardBoat::CheckCase(int iChecked, int jChecked)
+bool BoardBoat::IsValidCase(int iChecked, int jChecked)
 {
-	if (m_boardBoat[iChecked][jChecked] != 'B')
+	if(!IsInsideBoard(iChecked, jChecked))
 	{
-		//cout << "Tu as checke" << iChecked << " " << jChecked << " et elle est libre" << endl;
-		return true;//Case is free
+		return false;
 	}
 
-	return false;
+	return true;
+
+	//if (m_boardBoat[iChecked][jChecked] != 'B')
+	//{
+	//	//cout << "Tu as checke" << iChecked << "|" << jChecked << " et elle est libre" << endl;
+	//	return true;//Case is free
+	//}
+
+	//return false;
 	
+}
+
+bool BoardBoat::IsInsideBoard(int iChecked, int jChecked)
+{
+	//check quand tu peux pas y aller
+	if (iChecked > m_boardBoat.size() || iChecked < 0)// si iChecked >= m_boardBoat.size()
+	{
+		return false;//tu es a l'ext du board
+	}
+	if (jChecked > m_boardBoat[iChecked].size() || jChecked < 0)
+	{
+		return false;//tu es a l'ext du board
+	}
+
+	return true;
+
 }

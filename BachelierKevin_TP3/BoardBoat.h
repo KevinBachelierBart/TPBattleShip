@@ -12,10 +12,12 @@ public :
 	//du superposage va etre un souci
 	void SetCase(int i, int j, char token);
 	void SaveBoatLocation(int i1, int j1, int i2, int j2);
-	bool CheckCase(int iChecked, int jChecked);
+	bool IsValidCase(int iChecked, int jChecked);
 
 
 private:
+	bool IsInsideBoard(int iChecked, int jChecked);
+	
 	//Tableau
 	vector<vector<char>> m_boardBoat;
 
